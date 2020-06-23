@@ -11,7 +11,10 @@ export namespace Required {
   type requiredProps = Required<Props>;
 
   // ### 3. Example
-  // TODO
+  function updateProps(todo: Props, fieldsToUpdate: Required<Props>) {
+    return { ...todo, ...fieldsToUpdate };
+  }
+
   // ### 4. Custom example - reverse engineer + custom destructure
   type cRequired<T> = {
     [P in keyof T]-?: T[P];

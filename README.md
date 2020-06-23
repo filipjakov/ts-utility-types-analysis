@@ -1,26 +1,26 @@
 # ts-utility-types-analysis
-Reverse engineering Typescript's utility types:
+Analysing and reverse engineering Typescript's utility types:
 
-- Partial<T> - mapped type
-- Readonly<T> - mapped type
-- Record<K,T> - mapped type
-- Pick<T,K> - mapped type
-- Omit<T,K> - conditional type (pick + exclude)
-- Exclude<T,U> - conditional type
-- Extract<T,U> - conditional type
-- NonNullable<T> - conditional type
-- Parameters<T> - conditional + infer
-- ConstructorParameters<T> - conditional + infer
-- ReturnType<T> - conditional + infer
-- InstanceType<T> - conditional + infer
-- Required<T> - mapped type
-- ThisParameterType<T> - conditional + infer
-- OmitThisParameter<T> - conditional + infer
-- ThisType<T> - ???
+- [ ] Partial<T> - mapped type
+- [ ] Readonly<T> - mapped type
+- [ ] Record<K,T> - mapped type
+- [ ] Pick<T,K> - mapped type
+- [ ] Omit<T,K> - conditional type (pick + exclude)
+- [ ] Exclude<T,U> - conditional type
+- [ ] Extract<T,U> - conditional type
+- [ ] NonNullable<T> - conditional type
+- [ ] Parameters<T> - conditional + infer
+- [ ] ConstructorParameters<T> - conditional + infer
+- [ ] ReturnType<T> - conditional + infer
+- [ ] InstanceType<T> - conditional + infer
+- [ ] Required<T> - mapped type
+- [ ] ThisParameterType<T> - conditional + infer
+- [ ] OmitThisParameter<T> - conditional + infer
+- [ ] ThisType<T> - ???
 
 Source: https://github.com/microsoft/TypeScript/blob/master/lib/lib.es5.d.ts
 
-1. Types as metavalues
+## Types as metavalues
 
 Consider the following two levels of TypeScript code:
 - Program level: At runtime, we can use values and functions.
@@ -56,6 +56,7 @@ const ObjectLiteralType = {
 
 console.log(Object.keys(ObjectLiteralType));
 ```
+
 
 ## Resources
 

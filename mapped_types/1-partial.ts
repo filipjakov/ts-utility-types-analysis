@@ -4,6 +4,11 @@ export namespace Partial {
   // This utility will return a type that represents all subsets of a given type.
 
   // ### 2. Try out the original
+  interface Todo {
+    title: string;
+    description: string;
+  }
+
   type optionalTodo = Partial<Todo>;
 
   // ### 3. Example -> Update object utility
@@ -11,19 +16,13 @@ export namespace Partial {
     return { ...todo, ...fieldsToUpdate };
   }
 
-  const updated = updateTodo({ title: 'title', description: 'desc', complete: false }, { title: 'title-new' });
+  const updated = updateTodo({ title: 'title', description: 'desc' }, { title: 'title-new' });
 
-
-  // ### 4. Custom example - reverse engineer + custom destructure
-  // ? -> Mapped Type Modifier
+  // ### 4. Reverse engineer + destructure
   type cPartial<T> = {
     [P in keyof T]?: T[P]
   }
-
   type TodoKeys = keyof Todo; // Indexed type query
-  type TodoTitleValue = Todo['title']; // Indexed access operator
-  // Same as (Todo['title'] | Todo['description'] | Todo['complete']) and Todo[keyof Todo]
-  type TodoValues = Todo['title' | 'description' | 'complete'];
 
   // Steps destructured:
   type S0 = cPartial<Todo>;
@@ -36,12 +35,10 @@ export namespace Partial {
   type S3 = {
     title?: Todo['title'],
     description?: Todo['description'],
-    complete?: Todo['complete']
   }
   type S4 = {
     title?: string,
     description?: string,
-    complete?: boolean;
   }
 }
 

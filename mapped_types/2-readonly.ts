@@ -4,10 +4,16 @@ export namespace Readonly {
   // meaning the properties of the constructed type cannot be reassigned.
 
   // ### 2. Try out the original
-  type T1 = Readonly<Todo>;
+  interface Todo {
+    title: string;
+    description: string;
+    complete: boolean;
+  }
 
-  // ### 3. Example -> Object.freeze
-  // function freeze<T>(obj: T): Readonly<T>;
+  type readonlyTodo = Readonly<Todo>;
+
+  // ### 3. Example: typed Object.freeze -> function freeze<T>(obj: T): Readonly<T>;
+  // Enforcing immutability
 
   // ### 4. Custom example - reverse engineer + custom destructure
   // readonly -> Mapped Type Modifier
