@@ -1,14 +1,37 @@
-// !!!TypeScript represents collections of metavalues as unions of literal types.
-// type A = 'a' | 'b' | 'c' | Promise<any>;
 type A = 'a' | 'b' | 'c';
 type B = 'b' | 'c' | 'd';
+type C = {
+  propA: string;
+  sharedProp: string;
+}
+type D = {
+  propB: string;
+  sharedProp: string;
+}
 
-// In traditional object-oriented code, we might abstract over the two types by creating a hierarchy of types
+// !!!TypeScript represents collections of metavalues as unions of literal types.
 type Union = A | B;
-// Intersection types are often used for mixins and other concepts that don’t fit in the classic object-oriented mold.
+type UnionObj = C | D;
+
+// To access non-shared properties, we need a type guard
+function func(arg: UnionObj) {
+  arg.sharedProp; 
+  arg.propB;
+
+  if ('propB' in arg) { // type guard
+    arg.propB;
+  }
+}
+
+// If we view type A and type B as sets, then A & B is the set-theoretic intersection of these sets.
+// Put differently: The members of the result are members of both operands.
 type Intersection = A & B;
 
-// Example
+// The intersection of two object types has the properties of both types:
+type IntersectionObj = C & D;
+let shared: IntersectionObj = { propA: "", propB: "", sharedProp: "" };
+
+// Intersection types are often used for mixins and other concepts that don’t fit in the classic object-oriented mold.
 type LinkedList<T> = T & { next: LinkedList<T> };
 interface Animal {
   name: string;

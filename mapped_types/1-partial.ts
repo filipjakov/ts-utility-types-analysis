@@ -2,6 +2,7 @@ export namespace Partial {
   // ### 1. Give definition - Partial<T>
   // Constructs a type with all properties of T set to optional.
   // This utility will return a type that represents all subsets of a given type.
+  // Use case - Suppose we have a situation when the object could be filled from multiple places
 
   // ### 2. Try out the original
   interface Todo {

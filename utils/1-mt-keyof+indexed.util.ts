@@ -7,6 +7,7 @@ interface Person {
   birthDate: Date;
 }
 
+// TypeScript represents collections of metavalues as unions of literal types.
 type K1 = keyof Person;
 type K2 = keyof Person[];
 

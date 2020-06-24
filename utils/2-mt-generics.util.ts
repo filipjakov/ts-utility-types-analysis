@@ -1,10 +1,6 @@
 // Being able to create a component that can work over a variety of types rather than a single one.
 // This allows users to consume these components and use their own types.
 
-// Generic types are functions at the metalevel – for example:
-type Wrap<T> = [T];
-type Wrapped = Wrap<string>;
-
 // #Hello world of generics -> The identity function
 // Use case -> default value for function argument?
 function identity(arg: number): number
@@ -38,6 +34,10 @@ function loggingIdentity<T extends ArrayLike<any>>(arg: T): T {
   console.log(arg.length);  // Error: T doesn't have .length
   return arg;
 }
+
+// Generic types are functions/factories for types at the metalevel – for example:
+type Wrap<T> = [T];
+type Wrapped = Wrap<string>;
 
 // TODO: Using Type Parameters in Generic Constraints #
 function getProperty<T, K extends keyof T>(obj: T, key: K) {

@@ -1,31 +1,35 @@
 export namespace Pick {
   // ### 1. Give definition - Pick<T, K>
   // Constructs a type by picking the set of properties K from T.
+  // Gives the ability to create a new type by picking properties from the already existing models/types.
 
   // ### 2. Try out the original
-  type TodoPreview = Pick<Todo, 'title' | 'complete'>;
+  interface Article {
+    title: string;
+    content: string;
+    published: Date;
+  }
 
-  // ### 3. Example
-  // TODO
-  // ### 4. Custom example - reverse engineer + custom destructure
+  // Todo: check with non-existing property
+  type ArticlePreview = Pick<Article, 'title' | 'published'>;
+
+  // ### 3. Custom example - reverse engineer + custom destructure
   type cPick<T, K extends keyof T> = {
     [P in K]: T[P]
   }
 
-  type keys = keyof Todo;
+  type keys = keyof Article;
   // Steps destructured
-  type S0 = cPick<Todo, 'title' | 'complete'>;
+  type S0 = cPick<Article, 'title' | 'published'>;
   type S1 = {
-    [P in 'title' | 'complete']: Todo[P]
+    [P in 'title' | 'published']: Article[P]
   }
   type S2 = {
-    title: Todo['title'],
-    complete: Todo['complete'],
+    title: Article['title'],
+    published: Article['published'],
   }
   type S3 = {
     title: string,
-    complete: boolean
+    complete: Date
   }
-
-  // 1. Check and explain limitation for key
 }

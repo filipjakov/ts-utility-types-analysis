@@ -1,10 +1,10 @@
 # ts-utility-types-analysis
 Analysing and reverse engineering Typescript's utility types:
 
-- [ ] Partial<T> - mapped type
-- [ ] Readonly<T> - mapped type
-- [ ] Record<K,T> - mapped type
-- [ ] Pick<T,K> - mapped type
+- [x] Partial<T> - mapped type
+- [x] Readonly<T> - mapped type
+- [x] Record<K,T> - mapped type
+- [x] Pick<T,K> - mapped type
 - [ ] Omit<T,K> - conditional type (pick + exclude)
 - [ ] Exclude<T,U> - conditional type
 - [ ] Extract<T,U> - conditional type
@@ -13,7 +13,7 @@ Analysing and reverse engineering Typescript's utility types:
 - [ ] ConstructorParameters<T> - conditional + infer
 - [ ] ReturnType<T> - conditional + infer
 - [ ] InstanceType<T> - conditional + infer
-- [ ] Required<T> - mapped type
+- [x] Required<T> - mapped type
 - [ ] ThisParameterType<T> - conditional + infer
 - [ ] OmitThisParameter<T> - conditional + infer
 - [ ] ThisType<T> - ???
@@ -57,15 +57,12 @@ const ObjectLiteralType = {
 console.log(Object.keys(ObjectLiteralType));
 ```
 
+## Content
 
-## Resources
-
-- Generics:
-  - https://www.typescriptlang.org/docs/handbook/generics.html
-  - https://mariusschulz.com/blog/generic-parameter-defaults-in-typescript
-
-- Mapped types:
-  - https://mariusschulz.com/blog/mapped-types-in-typescript
-
-- Types vs. interfaces:
-  - https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types
+1. mapped types
+  - union and intersection
+  - indexed type query and indexed access operator
+  - generics
+  - mapped types
+2. conditional types
+3. conditional types with infer
