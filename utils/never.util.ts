@@ -1,15 +1,14 @@
 export namespace Never {
   // Characteristics:
   // - never is a subtype of and assignable to every type.
-  // - no type is a subtype of or assignable to never (except never itself).
-  type T1<T extends string> = [T];
-  type T11 = T1<never>;
+  type Wrapper1<T extends string> = [T];
+  type T1 = Wrapper1<never>;
 
-  type T2<T extends never> = [T];
-  type T21 = T2<string>;
+  // - no type is a subtype of or assignable to never (except never itself).
+  type Wrapper2<T extends never> = [T];
+  type T21 = Wrapper2<string>;
 
   type T3 = string | never;
-
 
   // - functions That Never Return
   const sing = function() {
@@ -27,19 +26,20 @@ export namespace Never {
     value: string | number
   ) {
     if (typeof value === "string") {
-      value; // Type string
+      value;
     } else if (typeof value === "number") {
-      value; // Type number
+      value;
     } else {
       value; // Type never
     }
   }
 
-
   // The Difference Between never and void:
   // 1. A function that doesn't explicitly return a value implicitly returns the value undefined in JavaScript.
   // Although we typically say that such a function "doesn't return anything", it returns.
-  // We usually ignore the return value in these cases. Such a function is inferred to have a void return type in TypeScript.
+  // We usually ignore the return value in these cases.
+  // Such a function is inferred to have a void return type in TypeScript.
+  // ####
   // 2. A function that has a never return type never returns. It doesn't return undefined, either.
   // The function doesn't have a normal completion, which means it throws an error or never finishes running at all.
 
@@ -66,34 +66,31 @@ export namespace Never {
 
   type EmailAddress = string | string[] | null | undefined;
 
+  type NonNullableEmailAddress = NonNullable<EmailAddress>;
   type cNonNullable<T> = T extends null | undefined ? never : T;
-  type S0 = cNonNullable<EmailAddress>;
 
+  type S0 = cNonNullable<EmailAddress>;
   type S1 = cNonNullable<
     | string
     | string[]
     | null
     | undefined
   >;
-
-  type S2 =
+  type S2 = // Distributive conditional type?
     | cNonNullable<string>
     | cNonNullable<string[]>
     | cNonNullable<null>
     | cNonNullable<undefined>;
-
   type S3 =
     | (string extends null | undefined ? never : string)
     | (string[] extends null | undefined ? never : string[])
     | (null extends null | undefined ? never : null)
     | (undefined extends null | undefined ? never : undefined);
-
   type S4 =
     | string
     | string[]
     | never
     | never;
-
   type S5 = string | string[];
 }
 

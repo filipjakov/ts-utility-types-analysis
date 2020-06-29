@@ -5,14 +5,14 @@ Analysing and reverse engineering Typescript's utility types:
 - [x] Readonly<T> - mapped type
 - [x] Record<K,T> - mapped type
 - [x] Pick<T,K> - mapped type
-- [ ] Omit<T,K> - conditional type (pick + exclude)
-- [ ] Exclude<T,U> - conditional type
-- [ ] Extract<T,U> - conditional type
-- [ ] NonNullable<T> - conditional type
-- [ ] Parameters<T> - conditional + infer
-- [ ] ConstructorParameters<T> - conditional + infer
-- [ ] ReturnType<T> - conditional + infer
-- [ ] InstanceType<T> - conditional + infer
+- [x] Omit<T,K> - conditional type (pick + exclude)
+- [x] Exclude<T,U> - conditional type
+- [x] Extract<T,U> - conditional type
+- [x] NonNullable<T> - conditional type
+- [x] Parameters<T> - conditional + infer
+- [x] ConstructorParameters<T> - conditional + infer
+- [x] ReturnType<T> - conditional + infer
+- [x] InstanceType<T> - conditional + infer
 - [x] Required<T> - mapped type
 - [ ] ThisParameterType<T> - conditional + infer
 - [ ] OmitThisParameter<T> - conditional + infer
@@ -65,4 +65,11 @@ console.log(Object.keys(ObjectLiteralType));
   - generics
   - mapped types
 2. conditional types
+  - conditionals
+  - "naked" type parameters
+  - never
 3. conditional types with infer
+  - infering
+4. Bonus
+  - object
+  - unknown

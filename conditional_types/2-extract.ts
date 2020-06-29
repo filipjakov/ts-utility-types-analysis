@@ -1,11 +1,10 @@
 export namespace Extract {
   // ### 1. Give definition - Extract<T, U>
   // Constructs a type by extracting from T all properties that are assignable to U.
-  // ### 2. Try out the original
   type T0 = Extract<"a" | "b" | "c", "a" | "f">;  // "a"
   type T1 = Extract<string | number | (() => void), Function>;  // () => v
 
-  // ### 3. Custom example - reverse engineer + custom destructure
+  // ### 2. Custom example - reverse engineer + custom destructure
   type cExtract<T, U> = T extends U ? T : never;
   // Steps destructured
   type S0 = cExtract<"a" | "b" | "c", "a" | "f">;
