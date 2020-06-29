@@ -69,7 +69,7 @@ console.log(Object.keys(ObjectLiteralType));
   - "naked" type parameters
   - never
 3. conditional types with infer
-  - infering
+  - conditionals with infering
 4. Bonus
-  - object
-  - unknown
+  - object type
+  - unknown type
