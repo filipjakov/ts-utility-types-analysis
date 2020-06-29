@@ -16,4 +16,16 @@ export namespace ReturnType {
   // 3. Custom + re
   // new keyword that indicates that the function can be constructed.
   type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R ? R : any;
+
+  // Custom
+  type AsyncReturnType<T extends (...args: any) => any> =
+    T extends (...args: any) => Promise<infer U>
+      ? U 
+      : ReturnType<T>
+
+  async function f2() {
+    return Promise.resolve(1);
+  }
+  type retf1 = AsyncReturnType<typeof f1>;
+  type retf2 = AsyncReturnType<typeof f2>;
 }
