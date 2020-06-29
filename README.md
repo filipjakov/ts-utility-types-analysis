@@ -71,5 +71,6 @@ console.log(Object.keys(ObjectLiteralType));
 3. conditional types with infer
   - conditionals with infering
 4. Bonus
+  - advanced custom utility type
   - object type
   - unknown type
