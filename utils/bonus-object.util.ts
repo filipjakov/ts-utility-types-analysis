@@ -1,14 +1,4 @@
-/**
- * It represents any non-primitive type. The following types are considered to be primitive types in JavaScript:
- * - string
- * - boolean
- * - number
- * - bigint
- * - symbol
- * - null
- * - undefined
-*/
-
+// It represents any non-primitive type. The following types are considered to be primitive types in JavaScript
 // All primitive types
 type Primitive =
   | string
@@ -33,7 +23,7 @@ Object.create(123);
 Object.create(true);
 Object.create("oops");
 
-// ###object vs. Object vs. {}
+// ### object vs. Object vs. {}
 // Object - describes functionality that is common to all JavaScript objects
 type funcs = keyof Object;
 

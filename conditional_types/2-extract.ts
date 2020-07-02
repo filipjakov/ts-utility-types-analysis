@@ -6,6 +6,7 @@ export namespace Extract {
 
   // ### 2. Custom example - reverse engineer + custom destructure
   type cExtract<T, U> = T extends U ? T : never;
+
   // Steps destructured
   type S0 = cExtract<"a" | "b" | "c", "a" | "f">;
   type S1 = 

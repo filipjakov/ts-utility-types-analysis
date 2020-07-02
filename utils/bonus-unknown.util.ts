@@ -65,14 +65,33 @@ function stringifyForLogging(value: unknown): string {
     return value.toISOString();
   }
 
+  const force = value as string;
   return String(value);
 }
 
-// Unknown in unions
+// Unknown in unions -> unknown absorbs every type.
 type UnionType1 = unknown | null;
 type UnionType2 = unknown | undefined;
 type UnionType3 = unknown | any;
+type UnionType4 = unknown | { a: string };
 
-// Unknown in intersections
+// As we've learned before, all types are assignable to unknown
+// This includes all strings, and therefore, unknown | string represents the same set of values as unknown itself.
+// Hence, the compiler can simplify the union type to unknown.
+type UnionType5 = string | unknown;
+
+// Unknown in intersections -> every type absorbs unknown
 type IntersectionType1 = unknown & null;
 type IntersectionType2 = unknown & undefined;
+
+// Since every type is assignable to unknown, including unknown in an intersection type does not change the result.
+// We're left with just string.
+type IntersectionType3 = unknown & string;
+
+/**
+ * Only 4 operators can be used on unknown:
+ * - ===
+ * - ==
+ * - !==
+ * - !=
+ */

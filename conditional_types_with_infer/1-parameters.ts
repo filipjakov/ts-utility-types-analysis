@@ -2,7 +2,7 @@ export namespace Parameters {
   // 1. Definition - Parameters<T>
   // Constructs a tuple type of the types of the parameters of a function type T.
   // 2. Example
-  declare function f1(arg: { a: number, b: string }): void
+  declare function f1(arg: { a: number, b: string }, cb: Function): void
   type T0 = Parameters<() => string>;
   type T1 = Parameters<(s: string) => void>;
   type T2 = Parameters<(<T>(arg: T) => T)>;

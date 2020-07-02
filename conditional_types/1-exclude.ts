@@ -4,7 +4,7 @@ export namespace Exclude {
   type T0 = Exclude<"a" | "b" | "c", "a" | "f">;
 
   // 2. Custom + re
-  type cExclude<T, U> = T extends U ? never : T
+  type cExclude<T, U> = T extends U ? never : T;
 
   type S0 = cExclude<"a" | "b" | "c", "a" | "f">;
   type S1 =
