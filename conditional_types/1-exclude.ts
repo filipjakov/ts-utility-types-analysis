@@ -5,6 +5,7 @@ export namespace Exclude {
 
   // 2. Custom + re
   type cExclude<T, U> = T extends U ? never : T;
+  // type cExclude<T, U extends T> = T extends U ? never : T; // stricter
 
   type S0 = cExclude<"a" | "b" | "c", "a" | "f">;
   type S1 =

@@ -6,12 +6,12 @@ export namespace Never {
 
   // - no type is a subtype of or assignable to never (except never itself).
   type Wrapper2<T extends never> = [T];
-  type T21 = Wrapper2<string>;
+  type T2 = Wrapper2<string>;
 
   type T3 = string | never;
 
   // - functions That Never Return
-  const sing = function() {
+  const loop = function() {
     while (true) {
       console.log('loop')
     }
