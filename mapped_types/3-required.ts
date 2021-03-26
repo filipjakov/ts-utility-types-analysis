@@ -6,7 +6,7 @@ export namespace Required {
   interface Props {
     a?: number;
     b?: string;
-  };
+  }
 
   type requiredProps = Required<Props>;
 
@@ -14,6 +14,8 @@ export namespace Required {
   function updateProps(todo: Props, fieldsToUpdate: Required<Props>) {
     return { ...todo, ...fieldsToUpdate };
   }
+
+  const newProps = updateProps({}, { a: 1 });
 
   // ### 4. Custom example - reverse engineer + custom destructure
   type cRequired<T> = {
@@ -23,17 +25,17 @@ export namespace Required {
   // Steps destructured
   type S0 = cRequired<Props>;
   type S1 = {
-    [P in keyof Props]-?: Props[P] 
-  }
+    [P in keyof Props]-?: Props[P];
+  };
   type S2 = {
-    [P in 'a' | 'b']-?: Props[P]
-  }
+    [P in "a" | "b"]-?: Props[P];
+  };
   type S3 = {
-    a: Props['a'];
-    b: Props['b'],
-  }
+    a: Props["a"];
+    b: Props["b"];
+  };
   type S4 = {
     a: number;
     b: string;
-  }
+  };
 }

@@ -17,29 +17,31 @@ export namespace Partial {
     return { ...todo, ...fieldsToUpdate };
   }
 
-  const updated = updateTodo({ title: 'title', description: 'desc' }, { title: 'title-new' });
+  const updated = updateTodo(
+    { title: "title", description: "desc" },
+    { title: "title-new" }
+  );
 
   // ### 4. Reverse engineer + destructure
   type cPartial<T> = {
-    [P in keyof T]?: T[P]
-  }
+    [P in keyof T]?: T[P];
+  };
   type TodoKeys = keyof Todo; // Indexed type query
 
   // Steps destructured:
   type S0 = cPartial<Todo>;
   type S1 = {
-    [P in keyof Todo]?: Todo[P] 
-  }
+    [P in keyof Todo]?: Todo[P];
+  };
   type S2 = {
-    [P in 'title' | 'description']?: Todo[P]
-  }
+    [P in "title" | "description"]?: Todo[P];
+  };
   type S3 = {
-    title?: Todo['title'],
-    description?: Todo['description'],
-  }
+    title?: Todo["title"];
+    description?: Todo["description"];
+  };
   type S4 = {
-    title?: string,
-    description?: string,
-  }
+    title?: string;
+    description?: string;
+  };
 }
-

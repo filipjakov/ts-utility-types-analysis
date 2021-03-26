@@ -14,6 +14,6 @@ type K2 = keyof Person[];
 // !!!Indexed access operator (lookup types)
 // The dual of this is indexed access types, also called lookup types.
 // Syntactically, they look exactly like an element access, but are written as types:
-type P1 = Person['age'];
+type P1 = Person["age"];
 // Distributivity: same as -> Person['name'] | Person['age'] | Person['birthDate']
-type P2 = Person['name' | 'age' | 'birthDate'];
+type P2 = Person["name" | "age" | "birthDate"];
